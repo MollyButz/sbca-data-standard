@@ -54,6 +54,9 @@ And other information about the physical makeup of the component.
 
 While the SBCA manages and approves the changes and development of this standard, input and pull requests are welcome from any interested parties. If this is your first time using github, [here](https://www.youtube.com/watch?v=w3jLJU7DT5E) is a short explanation video. For more information on the process of pull requests check out [this tutorial](https://help.github.com/articles/about-pull-requests/)
 
+# Future Work
+
+While not a part of this current standard, future work may be done on adding Layout and Loading information.
 
 # Example
 
