@@ -22,11 +22,16 @@ Effective standard models have been developed in the banking, insurance, pharmac
 
 The SBCA Unified-File-Format contains the following facts of a prefabricated component.
 
-General Component Infromation
+General Component Information
 
 - Name/Label
 - Component Type 
 - Number of Plies
+- File Format Version 
+- File Creation Time (ISO 8601 format)
+- File Creation Program Name
+- File Creation Version
+- Camber
 - Part Information
    - Members
      - Name/Label
@@ -56,7 +61,10 @@ While the SBCA manages and approves the changes and development of this standard
 
 # Future Work
 
-While not a part of this current standard, future work may be done on adding Layout and Loading information.
+While not a part of this current standard, future work may be done on:
+	-Component Layout
+	-Component Loading Information
+	-Part Cutting Information (eg. saw files)
 
 # Example
 
