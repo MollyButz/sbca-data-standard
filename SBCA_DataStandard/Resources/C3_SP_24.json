@@ -1,0 +1,180 @@
+{
+  "Name": "T-1",
+  "ComponentType": "RoofTruss",
+  "NumberOfPlies": 1,
+  "TopChordBracingLength": 24.0,
+  "BottomChordBracingLength": 120.0,
+  "Members": [
+    {
+      "Name": "B1",
+      "Lumber": {
+        "NominalThickness": "2",
+        "NominalWidth": "4",
+        "ActualThickness": 1.5,
+        "ActualWidth": 3.5,
+        "Length": 96.0,
+        "Grade": "Number_2",
+        "Species": "Spruce_Pine_Fir",
+        "TreatmentType": "None",
+        "GradingMethod": "VisuallyGraded",
+        "Structure": "Sawn"
+      },
+      "Geometry": {
+        "Vertices": [
+          [ 96.0, 1.5, 0.0 ],
+          [ 0.0, 1.5, 0.0 ],
+          [ 0.0, 1.5, 0.25 ],
+          [ 9.75, 1.5, 3.5 ],
+          [ 96.0, 1.5, 3.5 ],
+          [ 96.0, 0.0, 0.0 ],
+          [ 0.0, 0.0, 0.0 ],
+          [ 0.0, 0.0, 0.25 ],
+          [ 9.75, 0.0, 3.5 ],
+          [ 96.0, 0.0, 3.5 ]
+        ],
+        "Faces": [
+          [ 0, 1, 2 ],
+          [ 0, 2, 3 ],
+          [ 0, 3, 4 ],
+          [ 0, 5, 6 ],
+          [ 0, 6, 1 ],
+          [ 1, 6, 7 ],
+          [ 1, 7, 2 ],
+          [ 2, 7, 8 ],
+          [ 2, 8, 3 ],
+          [ 3, 8, 9 ],
+          [ 3, 9, 4 ],
+          [ 4, 9, 5 ],
+          [ 4, 5, 0 ],
+          [ 5, 9, 8 ],
+          [ 5, 8, 7 ],
+          [ 5, 7, 6 ]
+        ]
+      },
+      "MemberType": "BottomChord",
+      "Length": 96.0,
+      "Bracing": null,
+      "Angle": 0.0,
+      "Pitch": "0/12",
+      "CrossSectionalArea": "5.25",
+      "TransformationMatrix": [ 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.5, 1.0 ]
+    }
+  ],
+  "PlatePairs": [
+    {
+      "Angle": 0.0,
+      "Plate1TransformationMatrix": [ 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 5.875, 2.0, 1.5, 1.0 ],
+      "Plate2TransformationMatrix": [ 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 5.875, 2.0, -0.0356, 1.0 ],
+      "Name": "1",
+      "Plate1Geometry": {
+        "Vertices": [
+          [ -2.5, -2.0, 0.0 ],
+          [ -2.5, 2.0, 0.0 ],
+          [ 2.5, 2.0, 0.0 ],
+          [ 2.5, -2.0, 0.0 ],
+          [ -2.5, -2.0, 0.0356 ],
+          [ -2.5, 2.0, 0.0356 ],
+          [ 2.5, 2.0, 0.0356 ],
+          [ 2.5, -2.0, 0.0356 ]
+        ],
+        "Faces": [
+          [ 0, 1, 2 ],
+          [ 0, 2, 3 ],
+          [ 0, 4, 5 ],
+          [ 0, 5, 1 ],
+          [ 1, 5, 6 ],
+          [ 1, 6, 2 ],
+          [ 2, 6, 7 ],
+          [ 2, 7, 3 ],
+          [ 3, 7, 4 ],
+          [ 3, 4, 0 ],
+          [ 4, 7, 6 ],
+          [ 4, 6, 5 ]
+        ],
+        "Surfaces": [
+          [ 0, 1 ],
+          [ 2, 3 ],
+          [ 4, 5 ],
+          [ 6, 7 ],
+          [ 8, 9 ],
+          [ 10, 11 ]
+        ]
+      },
+      "Plate2Geometry": {
+        "Vertices": [
+          [ -2.5, -2.0, 0.0 ],
+          [ -2.5, 2.0, 0.0 ],
+          [ 2.5, 2.0, 0.0 ],
+          [ 2.5, -2.0, 0.0 ],
+          [ -2.5, -2.0, 0.0356 ],
+          [ -2.5, 2.0, 0.0356 ],
+          [ 2.5, 2.0, 0.0356 ],
+          [ 2.5, -2.0, 0.0356 ]
+        ],
+        "Faces": [
+          [ 0, 1, 2 ],
+          [ 0, 2, 3 ],
+          [ 0, 4, 5 ],
+          [ 0, 5, 1 ],
+          [ 1, 5, 6 ],
+          [ 1, 6, 2 ],
+          [ 2, 6, 7 ],
+          [ 2, 7, 3 ],
+          [ 3, 7, 4 ],
+          [ 3, 4, 0 ],
+          [ 4, 7, 6 ],
+          [ 4, 6, 5 ]
+        ],
+        "Surfaces": [
+          [ 0, 1 ],
+          [ 2, 3 ],
+          [ 4, 5 ],
+          [ 6, 7 ],
+          [ 8, 9 ],
+          [ 10, 11 ]
+        ]
+      },
+      "CenterX": 5.875,
+      "CenterY": 2.0,
+      "CenterZ": 0.7322,
+      "PlatePlacement": "FrontBack",
+      "PlateType": "MT20",
+      "PlateManufacturer": "MiTek",
+      "Width": 4.0,
+      "Length": 5.0,
+      "Thickness": 0.0356,
+      "BaseThickness": 0.0346
+    }
+  ],
+  "Hangers": [
+    {
+      "Name": "Hanger 2",
+      "Width": 3.5,
+      "Depth": 1.5,
+      "CenterPointX": 186.25,
+      "CenterPointY": 0.0
+    }
+  ],
+  "Bearings": [
+    {
+      "Name": "Bearing 1",
+      "Width": 3.5,
+      "Depth": 1.5,
+      "BearingArea": 5.25,
+      "CenterPointX": 1.75,
+      "CenterPointY": 0.0,
+      "Anchor": "Left",
+      "BearingType": "Ledger"
+    },
+    {
+      "Name": "Bearing 2",
+      "Width": 3.5,
+      "Depth": 1.5,
+      "BearingArea": 5.25,
+      "CenterPointX": 286.25,
+      "CenterPointY": 0.0,
+      "Anchor": "Right",
+      "BearingType": "Ledger"
+    }
+  ]
+}
