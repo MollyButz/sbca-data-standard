@@ -1,0 +1,431 @@
+{
+  "definitions": {
+    "Bearing": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "Name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "Width": {
+          "type": "number"
+        },
+        "Depth": {
+          "type": "number"
+        },
+        "BearingArea": {
+          "type": "number"
+        },
+        "CenterPointX": {
+          "type": "number"
+        },
+        "CenterPointY": {
+          "type": "integer"
+        },
+        "Anchor": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "BearingType": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "Name",
+        "Width",
+        "Depth",
+        "BearingArea",
+        "CenterPointX",
+        "CenterPointY",
+        "Anchor",
+        "BearingType"
+      ]
+    },
+    "Geometry": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "Vertices": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "number"
+            }
+          }
+        },
+        "Faces": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "integer"
+            }
+          }
+        }
+      },
+      "required": [
+        "Vertices",
+        "Faces"
+      ]
+    },
+    "Hanger": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "Name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "Width": {
+          "type": "number"
+        },
+        "Depth": {
+          "type": "number"
+        },
+        "CenterPointX": {
+          "type": "number"
+        },
+        "CenterPointY": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "Name",
+        "Width",
+        "Depth",
+        "CenterPointX",
+        "CenterPointY"
+      ]
+    },
+    "Lumber": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "NominalThickness": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "NominalWidth": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ActualThickness": {
+          "type": "number"
+        },
+        "ActualWidth": {
+          "type": "number"
+        },
+        "Length": {
+          "type": "number"
+        },
+        "Grade": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "Species": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "TreatmentType": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "GradingMethod": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "Structure": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "NominalThickness",
+        "NominalWidth",
+        "ActualThickness",
+        "ActualWidth",
+        "Length",
+        "Grade",
+        "Species",
+        "TreatmentType",
+        "GradingMethod",
+        "Structure"
+      ]
+    },
+    "Member": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "Name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "Lumber": {
+          "$ref": "#/definitions/Lumber"
+        },
+        "Geometry": {
+          "$ref": "#/definitions/Geometry"
+        },
+        "MemberType": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "Length": {
+          "type": "number"
+        },
+        "Bracing": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "Angle": {
+          "type": "number"
+        },
+        "CrossSectionalArea": {
+          "type": "number"
+        },
+        "TransformationMatrix": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "required": [
+        "Name",
+        "Lumber",
+        "Geometry",
+        "MemberType",
+        "Length",
+        "Bracing",
+        "Angle",
+        "CrossSectionalArea",
+        "TransformationMatrix"
+      ]
+    },
+    "PlatePair": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "Angle": {
+          "type": "number"
+        },
+        "Plate1TransformationMatrix": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number"
+          }
+        },
+        "Plate2TransformationMatrix": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number"
+          }
+        },
+        "Name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "Plate1Geometry": {
+          "$ref": "#/definitions/Geometry"
+        },
+        "Plate2Geometry": {
+          "$ref": "#/definitions/Geometry"
+        },
+        "CenterX": {
+          "type": "number"
+        },
+        "CenterY": {
+          "type": "number"
+        },
+        "CenterZ": {
+          "type": "number"
+        },
+        "PlatePlacement": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "PlateType": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "PlateManufacturer": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "Width": {
+          "type": "number"
+        },
+        "Length": {
+          "type": "number"
+        },
+        "Thickness": {
+          "type": "number"
+        },
+        "BaseThickness": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "Angle",
+        "Plate1TransformationMatrix",
+        "Plate2TransformationMatrix",
+        "Name",
+        "Plate1Geometry",
+        "Plate2Geometry",
+        "CenterX",
+        "CenterY",
+        "CenterZ",
+        "PlatePlacement",
+        "PlateType",
+        "PlateManufacturer",
+        "Width",
+        "Length",
+        "Thickness",
+        "BaseThickness"
+      ]
+    }
+  },
+  "type": "object",
+  "properties": {
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ComponentType": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "NumberOfPlies": {
+      "type": "integer"
+    },
+    "TopChordBracingLength": {
+      "type": "number"
+    },
+    "BottomChordBracingLength": {
+      "type": "number"
+    },
+    "Members": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/definitions/Member"
+      }
+    },
+    "PlatePairs": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/definitions/PlatePair"
+      }
+    },
+    "Hangers": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/definitions/Hanger"
+      }
+    },
+    "Bearings": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/definitions/Bearing"
+      }
+    }
+  },
+  "required": [
+    "Name",
+    "ComponentType",
+    "NumberOfPlies",
+    "TopChordBracingLength",
+    "BottomChordBracingLength",
+    "Members",
+    "PlatePairs",
+    "Hangers",
+    "Bearings"
+  ]
+}
