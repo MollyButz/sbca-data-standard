@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Newtonsoft.Json;
+
+using SBCA_DataStandard.Enums;
+
 namespace SBCA_DataStandard
 {
     public class Lumber
@@ -18,9 +22,9 @@ namespace SBCA_DataStandard
 
         public double Length { get; set; }
 
-        public string Grade { get; set; }
+        public LumberGrade Grade { get; set; }
 
-        public string Species { get; set; }
+        public LumberSpecies Species { get; set; }
 
         public string TreatmentType { get; set; }
 
