@@ -55,7 +55,7 @@
   <ItemGroup>
     <Compile Include="Bearing.cs" />
     <Compile Include="Component.cs" />
-    <Compile Include="Enums\LumberSpecies.cs" />
+    <Compile Include="Enums\LumberEnums.cs" />
     <Compile Include="FileResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

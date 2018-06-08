@@ -16,7 +16,7 @@
         "Grade": "Number2",
         "Species": "AlaskaCedar",
         "TreatmentType": "None",
-        "GradingMethod": "VisuallyGraded",
+        "GradingMethod": "Visual",
         "Structure": "Sawn"
       },
       "Geometry": {

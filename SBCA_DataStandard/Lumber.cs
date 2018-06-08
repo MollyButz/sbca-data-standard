@@ -28,7 +28,7 @@ namespace SBCA_DataStandard
 
         public string TreatmentType { get; set; }
 
-        public string GradingMethod { get; set; }
+        public GradingMethod GradingMethod { get; set; }
 
         public string Structure { get; set; }
     }
