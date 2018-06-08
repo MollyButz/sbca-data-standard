@@ -1,24 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using SBCA_DataStandard.Enums;
 
-using System.Globalization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 namespace SBCA_DataStandard
 {
     public class Component
     {
         public string Name { get; set; }
 
-        public string ComponentType { get; set; }
+        public DistanceUnit DistanceUnit { get; set; }
+
+        public AngleUnit AngleUnit { get; set; }
 
         public int NumberOfPlies { get; set; }
 
-        public double TopChordBracingLength { get; set; }
+        public List<ComponentUsage> ComponentUsages { get; set; }
 
-        public double BottomChordBracingLength { get; set; }
+        public List<MaterialType> MaterialTypes { get; set; }
 
         public List<Member> Members { get; set; } = new List<Member>();
+
+        public List<Lumber> Lumbers { get; set; } = new List<Lumber>();
+
+        public List<SteelSection> SteelSections { get; set; } = new List<SteelSection>();
 
         public List<PlatePair> PlatePairs { get; set; } = new List<PlatePair>();
 

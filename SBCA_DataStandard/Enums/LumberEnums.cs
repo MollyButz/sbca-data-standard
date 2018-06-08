@@ -176,10 +176,17 @@ namespace SBCA_DataStandard.Enums
         MEL_M_42,
     }
 
+    public enum Structure
+    {
+        Sawn,
+        LaminatedVeneerLumber,
+        LaminatedStrandLumber,
+    }
+
     public enum GradingMethod
     {
         Visual,
         MachineStressRated,
-        MachineEvaluated
+        MachineEvaluated,
     }
 }

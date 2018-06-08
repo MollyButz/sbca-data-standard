@@ -31,6 +31,7 @@ namespace SBCA_DataStandard
                 {
                     var returnGenerator = new JSchemaGenerator();
                     returnGenerator.GenerationProviders.Add(new StringEnumGenerationProvider());
+                    returnGenerator.DefaultRequired = Required.DisallowNull;
                     return returnGenerator;
                 }
             }
@@ -58,8 +59,7 @@ namespace SBCA_DataStandard
         [Test]
         public void ValidJsonSchema_C3_SP_24()
         {
-            var schema = SchemaGenerator.Generate(typeof(Component));
-
+            var schema = JSchema.Parse(Encoding.UTF8.GetString(FileResources.Schema));
             var componentJson = JObject.Parse(Encoding.UTF8.GetString(FileResources.C3_SP_24));
 
             IList<string> messages; // debug and inspect this variable to see why invalid

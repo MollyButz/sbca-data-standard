@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Newtonsoft.Json;
-
-using SBCA_DataStandard.Enums;
+﻿using SBCA_DataStandard.Enums;
+using System;
 
 namespace SBCA_DataStandard
 {
     public class Lumber
     {
+        public Guid Guid { get; set; }
+
         public string NominalThickness { get; set; }
 
         public string NominalWidth { get; set; }
@@ -19,8 +14,6 @@ namespace SBCA_DataStandard
         public double ActualThickness { get; set; }
 
         public double ActualWidth { get; set; }
-
-        public double Length { get; set; }
 
         public LumberGrade Grade { get; set; }
 
