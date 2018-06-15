@@ -28,29 +28,24 @@ General Component Information
 - Component Type 
 - Number of Plies
 - File Format Version 
-- File Creation Time (ISO 8601 format)
-- File Creation Program Name
-- File Creation Version
+- File Creation Time ([ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601))
+- File Creation Program
 - Camber
 - Part Information
    - Members
-     - Name/Label
+     - Name
      - Material
      - 3D Geometry
      - QC Information
   - Connectors
-    - Name/Label
+    - Name
     - Material
-    - 3D Geometry
-    - QC Information (Required Teeth Count, etc)
+    - Location
   - Hangers
     - Name/Label
     - Location
   - Bearings
     - Name/Label
-    - Location
-  - Bracing
-    - Material
     - Location
 
 And other information about the physical makeup of the component.
@@ -75,27 +70,22 @@ While not a part of this current standard, future work may be done on:
 A quick sample of what a Json data file for a Component might look like:
 (Note All Non-Nominal Units in Metric)
 
-    {
+        {
       "Name": "T-1",
-      "ComponentType": "RoofTruss",
+      "Version": "0.1.1",
+      "CreationProgram": "SBCA Uniform Data Standard Repository Tests",
+      "CreationTimeStamp": "2018-06-11T13:58:03.631794-04:00",
+      "DistanceUnit": "Inches",
+      "AngleUnit": "Degrees",
       "NumberOfPlies": 1,
-      "TopChordBracingLength": 24.0,
-      "BottomChordBracingLength": 120.0,
+      "ComponentUsages": [ "Roof" ],
+      "MaterialTypes": [ "Lumber" ],
       "Members": [
         {
           "Name": "B1",
-          "Lumber": {
-            "NominalThickness": "2",
-            "NominalWidth": "4",
-            "ActualThickness": 1.5,
-            "ActualWidth": 3.5,
-            "Length": 96.0,
-            "Grade": "Number_2",
-            "Species": "Spruce_Pine_Fir",
-            "TreatmentType": "None",
-            "GradingMethod": "VisuallyGraded",
-            "Structure": "Sawn"
-          },
+          "MaterialDescription": "#2 SYP 2x4",
+          "MaterialGuid": "9db95b90-542e-4045-ae39-42ce31ef65f8",
+          "MaterialType": "Lumber",
           "Geometry": {
             "Vertices": [
               [ 96.0, 1.5, 0.0 ],
@@ -126,27 +116,29 @@ A quick sample of what a Json data file for a Component might look like:
               [ 5, 9, 8 ],
               [ 5, 8, 7 ],
               [ 5, 7, 6 ]
-            ],
-            "Surfaces": [
-              [ 0, 1, 2 ],
-              [ 3, 4 ],
-              [ 5, 6 ],
-              [ 7, 8 ],
-              [ 9, 10 ],
-              [ 11, 12 ],
-              [ 13, 14, 15 ]
             ]
           },
           "MemberType": "BottomChord",
-          "Length": 96.0,
-          "Bracing": null,
+          "StockLength": 120.0,
           "Angle": 0.0,
-          "Pitch": "0/12",
-          "CrossSectionalArea": "5.25",
           "TransformationMatrix": [ 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.5, 1.0 ]
-        },
-       ...
+        }
       ],
+      "Lumbers": [
+        {
+          "Guid": "9db95b90-542e-4045-ae39-42ce31ef65f8",
+          "NominalThickness": "2",
+          "NominalWidth": "4",
+          "ActualThickness": 1.5,
+          "ActualWidth": 3.5,
+          "Grade": "Number2",
+          "Species": "AlaskaCedar",
+          "TreatmentType": "None",
+          "GradingMethod": "Visual",
+          "Structure": "Sawn"
+        }
+      ],
+      "SteelSections": [],
       "PlatePairs": [
         {
           "Angle": 0.0,
@@ -177,14 +169,6 @@ A quick sample of what a Json data file for a Component might look like:
               [ 3, 4, 0 ],
               [ 4, 7, 6 ],
               [ 4, 6, 5 ]
-            ],
-            "Surfaces": [
-              [ 0, 1 ],
-              [ 2, 3 ],
-              [ 4, 5 ],
-              [ 6, 7 ],
-              [ 8, 9 ],
-              [ 10, 11 ]
             ]
           },
           "Plate2Geometry": {
@@ -211,28 +195,20 @@ A quick sample of what a Json data file for a Component might look like:
               [ 3, 4, 0 ],
               [ 4, 7, 6 ],
               [ 4, 6, 5 ]
-            ],
-            "Surfaces": [
-              [ 0, 1 ],
-              [ 2, 3 ],
-              [ 4, 5 ],
-              [ 6, 7 ],
-              [ 8, 9 ],
-              [ 10, 11 ]
             ]
           },
           "CenterX": 5.875,
           "CenterY": 2.0,
           "CenterZ": 0.7322,
-          "PlatePlacement": "Front_Back",
+          "PlatePlacement": "FrontBack",
           "PlateType": "MT20",
           "PlateManufacturer": "MiTek",
           "Width": 4.0,
           "Length": 5.0,
           "Thickness": 0.0356,
           "BaseThickness": 0.0346
-        },
-      ...
+        }
+      ],
       "Hangers": [
         {
           "Name": "Hanger 2",
@@ -249,7 +225,7 @@ A quick sample of what a Json data file for a Component might look like:
           "Depth": 1.5,
           "BearingArea": 5.25,
           "CenterPointX": 1.75,
-          "CenterPointY": 0.0,
+          "CenterPointY": 0,
           "Anchor": "Left",
           "BearingType": "Ledger"
         },
@@ -259,7 +235,7 @@ A quick sample of what a Json data file for a Component might look like:
           "Depth": 1.5,
           "BearingArea": 5.25,
           "CenterPointX": 286.25,
-          "CenterPointY": 0.0,
+          "CenterPointY": 0,
           "Anchor": "Right",
           "BearingType": "Ledger"
         }

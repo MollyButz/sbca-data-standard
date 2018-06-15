@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using SBCA_DataStandard.Enums;
 
 namespace SBCA_DataStandard
@@ -6,6 +7,14 @@ namespace SBCA_DataStandard
     public class Component
     {
         public string Name { get; set; }
+
+        public string Version { get; set; } = new Version(0, 1, 1).ToString();
+
+        public string CreationProgram { get; set; }
+
+        public string CreationProgramVersion { get; set; }
+
+        public DateTime CreationTimeStamp { get; set; }
 
         public DistanceUnit DistanceUnit { get; set; }
 

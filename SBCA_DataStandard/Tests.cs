@@ -49,6 +49,10 @@ namespace SBCA_DataStandard
         {
             var component = JsonConvert.DeserializeObject<Component>(Encoding.UTF8.GetString(FileResources.C3_SP_24));
 
+            var createdDate = DateTime.Now;
+            component.CreationTimeStamp = createdDate;
+            component.CreationProgram = "SBCA Uniform Data Standard Repository Tests";
+
             var jsonOutput = JsonConvert.SerializeObject(component, new Newtonsoft.Json.Converters.StringEnumConverter());
 
             var reparsedComponent = JsonConvert.DeserializeObject<Component>(jsonOutput, SerializerSettings);
@@ -76,6 +80,29 @@ namespace SBCA_DataStandard
             var schemaFromFile = JSchema.Parse(Encoding.UTF8.GetString(FileResources.Schema));
 
             Assert.AreEqual(schemaFromModel.ToString(), schemaFromFile.ToString());
+        }
+
+        [Test]
+        public void VersionConstructorsTest()
+        {
+            var version1 = new Version(1,2,3);
+            var version2 = new Version("1.2.3");
+
+            Assert.AreEqual(version1.MajorVersion, 1);
+            Assert.AreEqual(version1.MinorVersion, 2);
+            Assert.AreEqual(version1.PatchVersion, 3);
+
+            Assert.AreEqual(version2.MajorVersion, 1);
+            Assert.AreEqual(version2.MinorVersion, 2);
+            Assert.AreEqual(version2.PatchVersion, 3);
+        }
+
+        [Test]
+        public void VersionToStringTest()
+        {
+            var version1 = new Version(1, 2, 3);
+
+            Assert.AreEqual(version1.ToString(), "1.2.3");
         }
     }
 }

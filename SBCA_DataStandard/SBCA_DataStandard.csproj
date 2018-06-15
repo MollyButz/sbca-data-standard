@@ -72,6 +72,7 @@
     <Compile Include="PlatePair.cs" />
     <Compile Include="SteelSectionType.cs" />
     <Compile Include="Tests.cs" />
+    <Compile Include="Version.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="FileResources.resx">

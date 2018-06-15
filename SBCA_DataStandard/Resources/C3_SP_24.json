@@ -1,5 +1,8 @@
 {
   "Name": "T-1",
+  "Version": "0.1.1",
+  "CreationProgram": "SBCA Uniform Data Standard Repository Tests",
+  "CreationTimeStamp": "2018-06-11T13:58:03.631794-04:00",
   "DistanceUnit": "Inches",
   "AngleUnit": "Degrees",
   "NumberOfPlies": 1,
@@ -8,10 +11,9 @@
   "Members": [
     {
       "Name": "B1",
+      "MaterialDescription": "#2 SYP 2x4",
       "MaterialGuid": "9db95b90-542e-4045-ae39-42ce31ef65f8",
       "MaterialType": "Lumber",
-      "MaterialDescription": "#2 SYP 2x4",
-      "StockLength": 120,
       "Geometry": {
         "Vertices": [
           [ 96.0, 1.5, 0.0 ],
@@ -45,10 +47,8 @@
         ]
       },
       "MemberType": "BottomChord",
-      "Length": 96.0,
-      "Bracing": null,
+      "StockLength": 120.0,
       "Angle": 0.0,
-      "CrossSectionalArea": 5.25,
       "TransformationMatrix": [ 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.5, 1.0 ]
     }
   ],
@@ -59,7 +59,6 @@
       "NominalWidth": "4",
       "ActualThickness": 1.5,
       "ActualWidth": 3.5,
-      "Length": 96.0,
       "Grade": "Number2",
       "Species": "AlaskaCedar",
       "TreatmentType": "None",
@@ -67,7 +66,7 @@
       "Structure": "Sawn"
     }
   ],
-
+  "SteelSections": [],
   "PlatePairs": [
     {
       "Angle": 0.0,
