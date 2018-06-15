@@ -1,17 +1,16 @@
-﻿using SBCA_DataStandard.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SBCA_DataStandard.Enums;
+
 
 namespace SBCA_DataStandard
 {
-    public class Member
-    {
+    public class Connector
+    { 
         public string Name { get; set; }
-
-        public string MemberType { get; set; }
 
         public string MaterialDescription { get; set; }
 
@@ -19,10 +18,14 @@ namespace SBCA_DataStandard
 
         public Guid MaterialGuid { get; set; }
 
-        public double StockLength { get; set; }
+        public double[] Center { get; set; }
 
-        public Geometry Geometry { get; set; }
+        public double[] NormalDirection { get; set; }
 
-        public double[] GrainDirection { get; set; }
+        /// <summary>
+        /// Clockwise angle from the X Axis
+        /// </summary>
+        public double Angle { get; set; }
+
     }
 }

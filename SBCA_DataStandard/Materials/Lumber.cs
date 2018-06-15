@@ -23,6 +23,6 @@ namespace SBCA_DataStandard
 
         public GradingMethod GradingMethod { get; set; }
 
-        public string Structure { get; set; }
+        public Structure Structure { get; set; }
     }
 }

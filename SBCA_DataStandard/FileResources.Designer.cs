@@ -63,9 +63,9 @@ namespace SBCA_DataStandard {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] C3_SP_24 {
+        internal static byte[] Schema {
             get {
-                object obj = ResourceManager.GetObject("C3_SP_24", resourceCulture);
+                object obj = ResourceManager.GetObject("Schema", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace SBCA_DataStandard {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Schema {
+        internal static byte[] TestFile {
             get {
-                object obj = ResourceManager.GetObject("Schema", resourceCulture);
+                object obj = ResourceManager.GetObject("TestFile", resourceCulture);
                 return ((byte[])(obj));
             }
         }

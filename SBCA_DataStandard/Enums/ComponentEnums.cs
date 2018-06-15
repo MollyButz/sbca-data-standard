@@ -10,7 +10,7 @@ namespace SBCA_DataStandard.Enums
     {
         Lumber,
         SteelSection,
-
+        MetalPlate,
     }
 
     public enum ComponentUsage

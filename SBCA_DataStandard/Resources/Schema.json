@@ -12,20 +12,51 @@
         "Depth": {
           "type": "number"
         },
-        "BearingArea": {
-          "type": "number"
-        },
-        "CenterPointX": {
-          "type": "number"
-        },
-        "CenterPointY": {
-          "type": "integer"
-        },
-        "Anchor": {
-          "type": "string"
+        "Center": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
         },
         "BearingType": {
           "type": "string"
+        }
+      }
+    },
+    "Connector": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "MaterialDescription": {
+          "type": "string"
+        },
+        "MaterialType": {
+          "type": "string",
+          "enum": [
+            "Lumber",
+            "SteelSection",
+            "MetalPlate"
+          ]
+        },
+        "MaterialGuid": {
+          "type": "string"
+        },
+        "Center": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "NormalDirection": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "Angle": {
+          "type": "number"
         }
       }
     },
@@ -64,11 +95,14 @@
         "Depth": {
           "type": "number"
         },
-        "CenterPointX": {
+        "Height": {
           "type": "number"
         },
-        "CenterPointY": {
-          "type": "number"
+        "Center": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
         }
       }
     },
@@ -263,7 +297,12 @@
           ]
         },
         "Structure": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "Sawn",
+            "LaminatedVeneerLumber",
+            "LaminatedStrandLumber"
+          ]
         }
       }
     },
@@ -273,32 +312,30 @@
         "Name": {
           "type": "string"
         },
-        "MaterialDescription": {
+        "MemberType": {
           "type": "string"
         },
-        "MaterialGuid": {
+        "MaterialDescription": {
           "type": "string"
         },
         "MaterialType": {
           "type": "string",
           "enum": [
             "Lumber",
-            "SteelSection"
+            "SteelSection",
+            "MetalPlate"
           ]
         },
-        "Geometry": {
-          "$ref": "#/definitions/Geometry"
-        },
-        "MemberType": {
+        "MaterialGuid": {
           "type": "string"
         },
         "StockLength": {
           "type": "number"
         },
-        "Angle": {
-          "type": "number"
+        "Geometry": {
+          "$ref": "#/definitions/Geometry"
         },
-        "TransformationMatrix": {
+        "GrainDirection": {
           "type": "array",
           "items": {
             "type": "number"
@@ -306,43 +343,10 @@
         }
       }
     },
-    "PlatePair": {
+    "MetalPlate": {
       "type": "object",
       "properties": {
-        "Angle": {
-          "type": "number"
-        },
-        "Plate1TransformationMatrix": {
-          "type": "array",
-          "items": {
-            "type": "number"
-          }
-        },
-        "Plate2TransformationMatrix": {
-          "type": "array",
-          "items": {
-            "type": "number"
-          }
-        },
-        "Name": {
-          "type": "string"
-        },
-        "Plate1Geometry": {
-          "$ref": "#/definitions/Geometry"
-        },
-        "Plate2Geometry": {
-          "$ref": "#/definitions/Geometry"
-        },
-        "CenterX": {
-          "type": "number"
-        },
-        "CenterY": {
-          "type": "number"
-        },
-        "CenterZ": {
-          "type": "number"
-        },
-        "PlatePlacement": {
+        "Guid": {
           "type": "string"
         },
         "PlateType": {
@@ -360,8 +364,13 @@
         "Thickness": {
           "type": "number"
         },
-        "BaseThickness": {
-          "type": "number"
+        "PlateGauge": {
+          "type": "string",
+          "enum": [
+            "Twenty",
+            "Eighteen",
+            "Sixteen"
+          ]
         }
       }
     },
@@ -409,6 +418,9 @@
     "CreationProgram": {
       "type": "string"
     },
+    "CreationProgramVersion": {
+      "type": "string"
+    },
     "CreationTimeStamp": {
       "type": "string",
       "format": "date-time"
@@ -452,14 +464,15 @@
         "type": "string",
         "enum": [
           "Lumber",
-          "SteelSection"
+          "SteelSection",
+          "MetalPlate"
         ]
       }
     },
-    "Members": {
+    "MetalPlateTypes": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/Member"
+        "$ref": "#/definitions/MetalPlate"
       }
     },
     "Lumbers": {
@@ -474,10 +487,19 @@
         "$ref": "#/definitions/SteelSection"
       }
     },
-    "PlatePairs": {
+    "ConnectorSets": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/PlatePair"
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/Connector"
+        }
+      }
+    },
+    "Members": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Member"
       }
     },
     "Hangers": {

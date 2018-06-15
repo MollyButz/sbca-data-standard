@@ -5,6 +5,7 @@ using Newtonsoft.Json.Schema;
 using Newtonsoft.Json.Schema.Generation;
 using Newtonsoft.Json.Serialization;
 using NUnit.Framework;
+using SBCA_DataStandard.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,33 +39,53 @@ namespace SBCA_DataStandard
         }
 
         [Test]
-        public void Deserialize_C3_SP_24()
+        public void Deserialize_Component()
         {
-            var component = JsonConvert.DeserializeObject<Component>(Encoding.UTF8.GetString(FileResources.C3_SP_24), SerializerSettings);
+            var component = JsonConvert.DeserializeObject<Component>(Encoding.UTF8.GetString(FileResources.TestFile), SerializerSettings);
             Assert.IsTrue(component != null);
         }
 
         [Test]
-        public void Serialize_C3_SP_24()
+        public void Serialize_Component()
         {
-            var component = JsonConvert.DeserializeObject<Component>(Encoding.UTF8.GetString(FileResources.C3_SP_24));
+            var component = TestModels.TestComponent;
+            var jsonOutput = JsonConvert.SerializeObject(component, new Newtonsoft.Json.Converters.StringEnumConverter());
 
-            var createdDate = DateTime.Now;
-            component.CreationTimeStamp = createdDate;
-            component.CreationProgram = "SBCA Uniform Data Standard Repository Tests";
+            var reparsedComponent = JsonConvert.DeserializeObject<Component>(jsonOutput, SerializerSettings);
+
+            Assert.IsTrue(reparsedComponent != null);
+        }
+
+        [Test]
+        public void SerializeAndDeserialize_Component()
+        {
+            var component = TestModels.TestComponent;
 
             var jsonOutput = JsonConvert.SerializeObject(component, new Newtonsoft.Json.Converters.StringEnumConverter());
 
             var reparsedComponent = JsonConvert.DeserializeObject<Component>(jsonOutput, SerializerSettings);
 
             Assert.AreEqual(component.Name, reparsedComponent.Name);
+            Assert.AreEqual(component.NumberOfPlies, reparsedComponent.NumberOfPlies);
+            Assert.AreEqual(component.DistanceUnit, reparsedComponent.DistanceUnit);
+            Assert.AreEqual(component.AngleUnit, reparsedComponent.AngleUnit);
+            Assert.That(component.ComponentUsages, Is.EquivalentTo(reparsedComponent.ComponentUsages));
+            Assert.That(component.MaterialTypes, Is.EquivalentTo(reparsedComponent.MaterialTypes));
+
+            Assert.AreEqual(component.Members[0].Name, "B1");
+            Assert.AreEqual(component.Members[0].MemberType, "BottomChord");
+            Assert.AreEqual(component.Members[0].MaterialDescription, "#2 SYP 2x4");
+            Assert.AreEqual(component.Members[0].MaterialType, MaterialType.Lumber);
+            Assert.AreEqual(component.Members[0].StockLength, 120);
+            Assert.AreEqual(component.Members[0].GrainDirection, new[] { 1.0, 0.0, 0.0 });
+
         }
 
         [Test]
         public void ValidJsonSchema_C3_SP_24()
         {
             var schema = JSchema.Parse(Encoding.UTF8.GetString(FileResources.Schema));
-            var componentJson = JObject.Parse(Encoding.UTF8.GetString(FileResources.C3_SP_24));
+            var componentJson = JObject.Parse(Encoding.UTF8.GetString(FileResources.TestFile));
 
             IList<string> messages; // debug and inspect this variable to see why invalid
             var valid = componentJson.IsValid(schema, out messages);

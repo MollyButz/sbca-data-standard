@@ -68,24 +68,74 @@ While not a part of this current standard, future work may be done on:
 # Example
 
 A quick sample of what a Json data file for a Component might look like:
-(Note All Non-Nominal Units in Metric)
 
-        {
-      "Name": "T-1",
+    {
+      "Name": "Test",
       "Version": "0.1.1",
       "CreationProgram": "SBCA Uniform Data Standard Repository Tests",
-      "CreationTimeStamp": "2018-06-11T13:58:03.631794-04:00",
+      "CreationProgramVersion": "0.1.1",
+      "CreationTimeStamp": "2018-06-15T00:00:00",
       "DistanceUnit": "Inches",
       "AngleUnit": "Degrees",
       "NumberOfPlies": 1,
       "ComponentUsages": [ "Roof" ],
-      "MaterialTypes": [ "Lumber" ],
+      "MaterialTypes": [ "Lumber", "MetalPlate" ],
+      "MetalPlateTypes": [
+        {
+          "Guid": "92862168-2b8c-42f6-9a68-68edaabebc29",
+          "PlateType": "AS20",
+          "PlateManufacturer": "Simpson Strong Tie",
+          "Width": 4.0,
+          "Length": 4.0,
+          "Thickness": 0.0356,
+          "PlateGauge": "Twenty"
+        }
+      ],
+      "Lumbers": [
+        {
+          "Guid": "9db95b90-542e-4045-ae39-42ce31ef65f8",
+          "NominalThickness": "2",
+          "NominalWidth": "4",
+          "ActualThickness": 1.5,
+          "ActualWidth": 3.5,
+          "Grade": "Number2",
+          "Species": "SouthernPine",
+          "TreatmentType": "None",
+          "GradingMethod": "Visual",
+          "Structure": "Sawn"
+        }
+      ],
+      "SteelSections": [],
+      "ConnectorSets": [
+        [
+          {
+            "Name": "1",
+            "MaterialDescription": "AS20 4x4",
+            "MaterialType": "Lumber",
+            "MaterialGuid": "92862168-2b8c-42f6-9a68-68edaabebc29",
+            "Center": [ 60.0, 3.5, 1.5 ],
+            "NormalDirection": [ 0.0, 0.0, 1.0 ],
+            "Angle": 0.0
+          },
+          {
+            "Name": "1",
+            "MaterialDescription": "AS20 4x4",
+            "MaterialType": "Lumber",
+            "MaterialGuid": "92862168-2b8c-42f6-9a68-68edaabebc29",
+            "Center": [ 60.0, 3.5, 1.5 ],
+            "NormalDirection": [ 0.0, 0.0, -1.0 ],
+            "Angle": 0.0
+          }
+        ]
+      ],
       "Members": [
         {
           "Name": "B1",
+          "MemberType": "BottomChord",
           "MaterialDescription": "#2 SYP 2x4",
-          "MaterialGuid": "9db95b90-542e-4045-ae39-42ce31ef65f8",
           "MaterialType": "Lumber",
+          "MaterialGuid": "9db95b90-542e-4045-ae39-42ce31ef65f8",
+          "StockLength": 120.0,
           "Geometry": {
             "Vertices": [
               [ 96.0, 1.5, 0.0 ],
@@ -104,7 +154,7 @@ A quick sample of what a Json data file for a Component might look like:
               [ 0, 2, 3 ],
               [ 0, 3, 4 ],
               [ 0, 5, 6 ],
-              [ 0, 6, 1 ],
+              [ 0, 6, 15 ],
               [ 1, 6, 7 ],
               [ 1, 7, 2 ],
               [ 2, 7, 8 ],
@@ -118,126 +168,32 @@ A quick sample of what a Json data file for a Component might look like:
               [ 5, 7, 6 ]
             ]
           },
-          "MemberType": "BottomChord",
-          "StockLength": 120.0,
-          "Angle": 0.0,
-          "TransformationMatrix": [ 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.5, 1.0 ]
-        }
-      ],
-      "Lumbers": [
-        {
-          "Guid": "9db95b90-542e-4045-ae39-42ce31ef65f8",
-          "NominalThickness": "2",
-          "NominalWidth": "4",
-          "ActualThickness": 1.5,
-          "ActualWidth": 3.5,
-          "Grade": "Number2",
-          "Species": "AlaskaCedar",
-          "TreatmentType": "None",
-          "GradingMethod": "Visual",
-          "Structure": "Sawn"
-        }
-      ],
-      "SteelSections": [],
-      "PlatePairs": [
-        {
-          "Angle": 0.0,
-          "Plate1TransformationMatrix": [ 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 5.875, 2.0, 1.5, 1.0 ],
-          "Plate2TransformationMatrix": [ 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 5.875, 2.0, -0.0356, 1.0 ],
-          "Name": "1",
-          "Plate1Geometry": {
-            "Vertices": [
-              [ -2.5, -2.0, 0.0 ],
-              [ -2.5, 2.0, 0.0 ],
-              [ 2.5, 2.0, 0.0 ],
-              [ 2.5, -2.0, 0.0 ],
-              [ -2.5, -2.0, 0.0356 ],
-              [ -2.5, 2.0, 0.0356 ],
-              [ 2.5, 2.0, 0.0356 ],
-              [ 2.5, -2.0, 0.0356 ]
-            ],
-            "Faces": [
-              [ 0, 1, 2 ],
-              [ 0, 2, 3 ],
-              [ 0, 4, 5 ],
-              [ 0, 5, 1 ],
-              [ 1, 5, 6 ],
-              [ 1, 6, 2 ],
-              [ 2, 6, 7 ],
-              [ 2, 7, 3 ],
-              [ 3, 7, 4 ],
-              [ 3, 4, 0 ],
-              [ 4, 7, 6 ],
-              [ 4, 6, 5 ]
-            ]
-          },
-          "Plate2Geometry": {
-            "Vertices": [
-              [ -2.5, -2.0, 0.0 ],
-              [ -2.5, 2.0, 0.0 ],
-              [ 2.5, 2.0, 0.0 ],
-              [ 2.5, -2.0, 0.0 ],
-              [ -2.5, -2.0, 0.0356 ],
-              [ -2.5, 2.0, 0.0356 ],
-              [ 2.5, 2.0, 0.0356 ],
-              [ 2.5, -2.0, 0.0356 ]
-            ],
-            "Faces": [
-              [ 0, 1, 2 ],
-              [ 0, 2, 3 ],
-              [ 0, 4, 5 ],
-              [ 0, 5, 1 ],
-              [ 1, 5, 6 ],
-              [ 1, 6, 2 ],
-              [ 2, 6, 7 ],
-              [ 2, 7, 3 ],
-              [ 3, 7, 4 ],
-              [ 3, 4, 0 ],
-              [ 4, 7, 6 ],
-              [ 4, 6, 5 ]
-            ]
-          },
-          "CenterX": 5.875,
-          "CenterY": 2.0,
-          "CenterZ": 0.7322,
-          "PlatePlacement": "FrontBack",
-          "PlateType": "MT20",
-          "PlateManufacturer": "MiTek",
-          "Width": 4.0,
-          "Length": 5.0,
-          "Thickness": 0.0356,
-          "BaseThickness": 0.0346
+          "GrainDirection": [ 1.0, 0.0, 0.0 ]
         }
       ],
       "Hangers": [
         {
-          "Name": "Hanger 2",
+          "Name": "Hanger 1",
           "Width": 3.5,
-          "Depth": 1.5,
-          "CenterPointX": 186.25,
-          "CenterPointY": 0.0
+          "Depth": 3.5,
+          "Height": 3.5,
+          "Center": [ 30.0, 0.0, 1.5 ]
         }
       ],
       "Bearings": [
         {
-          "Name": "Bearing 1",
+          "Name": "A",
           "Width": 3.5,
           "Depth": 1.5,
-          "BearingArea": 5.25,
-          "CenterPointX": 1.75,
-          "CenterPointY": 0,
-          "Anchor": "Left",
-          "BearingType": "Ledger"
+          "Center": [ 1.75, 0.0, 0.75 ],
+          "BearingType": "Double Wall Plate"
         },
         {
-          "Name": "Bearing 2",
+          "Name": "B",
           "Width": 3.5,
           "Depth": 1.5,
-          "BearingArea": 5.25,
-          "CenterPointX": 286.25,
-          "CenterPointY": 0,
-          "Anchor": "Right",
-          "BearingType": "Ledger"
+          "Center": [ 95.25, 0.0, 0.75 ],
+          "BearingType": "Double Wall Plate"
         }
       ]
     }

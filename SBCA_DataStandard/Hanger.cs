@@ -14,8 +14,9 @@ namespace SBCA_DataStandard
 
         public double Depth { get; set; }
 
-        public double CenterPointX { get; set; }
+        public double Height { get; set; }
 
-        public double CenterPointY { get; set; }
+
+        public double[] Center { get; set; }
     }
 }

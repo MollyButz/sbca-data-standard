@@ -14,13 +14,7 @@ namespace SBCA_DataStandard
 
         public double Depth { get; set; }
 
-        public double BearingArea { get; set; }
-
-        public double CenterPointX { get; set; }
-
-        public long CenterPointY { get; set; }
-
-        public string Anchor { get; set; }
+        public double[] Center { get; set; }
 
         public string BearingType { get; set; }
     }

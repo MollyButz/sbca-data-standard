@@ -26,13 +26,15 @@ namespace SBCA_DataStandard
 
         public List<MaterialType> MaterialTypes { get; set; }
 
-        public List<Member> Members { get; set; } = new List<Member>();
+        public List<MetalPlate> MetalPlateTypes { get; set; } = new List<MetalPlate>();
 
         public List<Lumber> Lumbers { get; set; } = new List<Lumber>();
 
         public List<SteelSection> SteelSections { get; set; } = new List<SteelSection>();
 
-        public List<PlatePair> PlatePairs { get; set; } = new List<PlatePair>();
+        public List<Connector[]> ConnectorSets { get; set; } = new List<Connector[]>();
+
+        public List<Member> Members { get; set; } = new List<Member>();
 
         public List<Hanger> Hangers { get; set; } = new List<Hanger>();
 
