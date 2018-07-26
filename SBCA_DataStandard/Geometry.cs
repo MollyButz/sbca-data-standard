@@ -8,8 +8,8 @@ namespace SBCA_DataStandard
 {
     public class Geometry
     {
-        public double[][] Vertices { get; set; }
+        public List<Point3D> Vertices { get; set; } = new List<Point3D>();
 
-        public int[][] Faces { get; set; }
+        public List<List<int>> Faces { get; set; } = new List<List<int>>();
     }
 }

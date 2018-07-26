@@ -10,7 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 
 namespace SBCA_DataStandard
 {
@@ -57,6 +57,44 @@ namespace SBCA_DataStandard
         }
 
         [Test]
+        public void Dump_Serialize_Component()
+        {
+            var component = TestModels.TestComponent;
+            var jsonOutput = JsonConvert.SerializeObject(component, Formatting.Indented, new Newtonsoft.Json.Converters.StringEnumConverter());
+
+            try
+            {
+                string outputFile = @".\componentoutput.json";
+                File.WriteAllText(outputFile, jsonOutput);
+
+                Assert.IsTrue(File.Exists(outputFile));
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail("Writing the test model failed! " + ex.Message);
+            }
+        }
+
+        [Test]
+        public void Dump_Serialize_Model()
+        {
+            var schemaFromModel = SchemaGenerator.Generate(typeof(Component));
+            var jsonOutput = schemaFromModel.ToString();
+
+            try
+            {
+                string outputFile = @".\modeloutput.json";
+                File.WriteAllText(outputFile, jsonOutput);
+
+                Assert.IsTrue(File.Exists(outputFile));
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail("Writing the test model failed! " + ex.Message);
+            }
+        }
+
+        [Test]
         public void SerializeAndDeserialize_Component()
         {
             var component = TestModels.TestComponent;
@@ -77,7 +115,9 @@ namespace SBCA_DataStandard
             Assert.AreEqual(component.Members[0].MaterialDescription, "#2 SYP 2x4");
             Assert.AreEqual(component.Members[0].MaterialType, MaterialType.Lumber);
             Assert.AreEqual(component.Members[0].StockLength, 120);
-            Assert.AreEqual(component.Members[0].GrainDirection, new[] { 1.0, 0.0, 0.0 });
+            Assert.AreEqual(component.Members[0].GrainDirection.DX, 1.0);
+            Assert.AreEqual(component.Members[0].GrainDirection.DY, 0.0);
+            Assert.AreEqual(component.Members[0].GrainDirection.DZ, 0.0);
 
         }
 
@@ -124,6 +164,67 @@ namespace SBCA_DataStandard
             var version1 = new Version(1, 2, 3);
 
             Assert.AreEqual(version1.ToString(), "1.2.3");
+        }
+
+        [Test]
+        public void Points()
+        {
+            // Default Value Test
+            Point3D ptDefault = new Point3D();
+            Point3D ptZero = new Point3D(0.0, 0.0, 0.0);
+            Assert.AreEqual(ptDefault.X, ptZero.X);
+            Assert.AreEqual(ptDefault.Y, ptZero.Y);
+            Assert.AreEqual(ptDefault.Z, ptZero.Z);
+
+            // Constructor Test
+            Point3D ptNonZero = new Point3D(1.2, 3.4, 5.6);
+            Assert.AreEqual(ptNonZero.X, 1.2);
+            Assert.AreEqual(ptNonZero.Y, 3.4);
+            Assert.AreEqual(ptNonZero.Z, 5.6);
+        }
+
+        [Test]
+        public void Vectors()
+        {
+            // Default Value Test
+            Vector3D vecDefault = new Vector3D();
+            Vector3D vecZero = new Vector3D(0.0, 0.0, 0.0);
+            Assert.AreEqual(vecDefault.DX, vecZero.DX);
+            Assert.AreEqual(vecDefault.DY, vecZero.DY);
+            Assert.AreEqual(vecDefault.DZ, vecZero.DZ);
+
+            // Constructor Test
+            Vector3D vecNonZero = new Vector3D(1.2, 3.4, 5.6);
+            Assert.AreEqual(vecNonZero.DX, 1.2);
+            Assert.AreEqual(vecNonZero.DY, 3.4);
+            Assert.AreEqual(vecNonZero.DZ, 5.6);
+            Assert.AreEqual(vecNonZero.Magnitude, Math.Sqrt(1.2 * 1.2 + 3.4 * 3.4 + 5.6 * 5.6));
+
+            // Point-Point Constructor Test
+            Point3D ptZero = new Point3D(0.0, 0.0, 0.0);
+            Point3D ptX = new Point3D(1.0, 0.0, 0.0);
+            Point3D ptY = new Point3D(0.0, 1.0, 0.0);
+            Point3D ptZ = new Point3D(0.0, 0.0, 1.0);
+
+            Vector3D vecX = new Vector3D(ptZero, ptX);
+            Vector3D vecY = new Vector3D(ptZero, ptY);
+            Vector3D vecZ = new Vector3D(ptZero, ptZ);
+
+            Assert.AreEqual(vecX.DX, Vector3D.XAxis.DX);
+            Assert.AreEqual(vecX.DY, Vector3D.XAxis.DY);
+            Assert.AreEqual(vecX.DZ, Vector3D.XAxis.DZ);
+
+            Assert.AreEqual(vecY.DX, Vector3D.YAxis.DX);
+            Assert.AreEqual(vecY.DY, Vector3D.YAxis.DY);
+            Assert.AreEqual(vecY.DZ, Vector3D.YAxis.DZ);
+
+            Assert.AreEqual(vecZ.DX, Vector3D.ZAxis.DX);
+            Assert.AreEqual(vecZ.DY, Vector3D.ZAxis.DY);
+            Assert.AreEqual(vecZ.DZ, Vector3D.ZAxis.DZ);
+
+            // Normalize Test
+            vecNonZero.Normalize();
+            Assert.AreEqual(vecNonZero.Magnitude, 1.0);
         }
     }
 }

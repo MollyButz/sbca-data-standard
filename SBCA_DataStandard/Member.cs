@@ -23,6 +23,6 @@ namespace SBCA_DataStandard
 
         public Geometry Geometry { get; set; }
 
-        public double[] GrainDirection { get; set; }
+        public Vector3D GrainDirection { get; set; }
     }
 }

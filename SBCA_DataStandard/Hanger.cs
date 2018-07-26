@@ -17,6 +17,6 @@ namespace SBCA_DataStandard
         public double Height { get; set; }
 
 
-        public double[] Center { get; set; }
+        public Point3D Center { get; set; }
     }
 }

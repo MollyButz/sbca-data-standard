@@ -42,8 +42,8 @@
         "MaterialDescription": "AS20 4x4",
         "MaterialType": "Lumber",
         "MaterialGuid": "92862168-2b8c-42f6-9a68-68edaabebc29",
-        "Center": [ 60.0, 3.5, 1.5 ],
-        "NormalDirection": [ 0.0, 0.0, 1.0 ],
+        "Center": { "X": 60.0, "Y": 3.5, "Z": 1.5 },
+        "NormalDirection": { "DX": 0.0, "DY": 0.0, "DZ": 1.0 },
         "Angle": 0.0
       },
       {
@@ -51,8 +51,8 @@
         "MaterialDescription": "AS20 4x4",
         "MaterialType": "Lumber",
         "MaterialGuid": "92862168-2b8c-42f6-9a68-68edaabebc29",
-        "Center": [ 60.0, 3.5, 1.5 ],
-        "NormalDirection": [ 0.0, 0.0, -1.0 ],
+        "Center": { "X": 60.0, "Y": 3.5, "Z": 1.5 },
+        "NormalDirection": { "DX": 0.0, "DY": 0.0, "DZ": -1.0 },
         "Angle": 0.0
       }
     ]
@@ -67,16 +67,16 @@
       "StockLength": 120.0,
       "Geometry": {
         "Vertices": [
-          [ 96.0, 1.5, 0.0 ],
-          [ 0.0, 1.5, 0.0 ],
-          [ 0.0, 1.5, 0.25 ],
-          [ 9.75, 1.5, 3.5 ],
-          [ 96.0, 1.5, 3.5 ],
-          [ 96.0, 0.0, 0.0 ],
-          [ 0.0, 0.0, 0.0 ],
-          [ 0.0, 0.0, 0.25 ],
-          [ 9.75, 0.0, 3.5 ],
-          [ 96.0, 0.0, 3.5 ]
+          { "X": 96.0, "Y": 1.5, "Z": 0.0  },
+          { "X": 0.0,  "Y": 1.5, "Z": 0.0  },
+          { "X": 0.0,  "Y": 1.5, "Z": 0.25 },
+          { "X": 9.75, "Y": 1.5, "Z": 3.5  },
+          { "X": 96.0, "Y": 1.5, "Z": 3.5  },
+          { "X": 96.0, "Y": 0.0, "Z": 0.0  },
+          { "X": 0.0,  "Y": 0.0, "Z": 0.0  },
+          { "X": 0.0,  "Y": 0.0, "Z": 0.25 },
+          { "X": 9.75, "Y": 0.0, "Z": 3.5  },
+          { "X": 96.0, "Y": 0.0, "Z": 3.5  }
         ],
         "Faces": [
           [ 0, 1, 2 ],
@@ -97,7 +97,7 @@
           [ 5, 7, 6 ]
         ]
       },
-      "GrainDirection": [ 1.0, 0.0, 0.0 ]
+      "GrainDirection": { "DX": 1.0, "DY": 0.0, "DZ": 0.0 }
     }
   ],
   "Hangers": [
@@ -106,7 +106,7 @@
       "Width": 3.5,
       "Depth": 3.5,
       "Height": 3.5,
-      "Center": [ 30.0, 0.0, 1.5 ]
+      "Center": { "X": 30.0, "Y": 0.0, "Z": 1.5 }
     }
   ],
   "Bearings": [
@@ -114,14 +114,14 @@
       "Name": "A",
       "Width": 3.5,
       "Depth": 1.5,
-      "Center": [ 1.75, 0.0, 0.75 ],
+      "Center": { "X": 1.75, "Y": 0.0, "Z": 0.75 },
       "BearingType": "Double Wall Plate"
     },
     {
       "Name": "B",
       "Width": 3.5,
       "Depth": 1.5,
-      "Center": [ 95.25, 0.0, 0.75 ],
+      "Center": { "X": 95.25, "Y": 0.0, "Z": 0.75 },
       "BearingType": "Double Wall Plate"
     }
   ]

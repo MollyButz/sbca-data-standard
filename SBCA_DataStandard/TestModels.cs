@@ -17,7 +17,7 @@ namespace SBCA_DataStandard
             NumberOfPlies = 1,
             CreationTimeStamp = DateTime.Parse("6/15/2018"),
             CreationProgram = "SBCA Uniform Data Standard Repository Tests",
-            CreationProgramVersion = new Version(0,1,1).ToString(),
+            CreationProgramVersion = new Version(0, 1, 1).ToString(),
             Version = new Version(0, 1, 1).ToString(),
 
             ComponentUsages = new List<ComponentUsage>()
@@ -72,39 +72,39 @@ namespace SBCA_DataStandard
                     MaterialDescription = "#2 SYP 2x4",
                     StockLength = 120,
                     MemberType = "BottomChord",
-                    GrainDirection = new[]{ 1.0, 0.0, 0.0 },
+                    GrainDirection = new Vector3D ( 1.0, 0.0, 0.0 ),
                     Geometry = new Geometry()
                     {
-                        Vertices = new []{
-                                      new []{ 96.0, 1.5, 0.0 },
-                                      new []{ 0.0, 1.5, 0.0 },
-                                      new []{ 0.0, 1.5, 0.25 },
-                                      new []{ 9.75, 1.5, 3.5 },
-                                      new []{ 96.0, 1.5, 3.5 },
-                                      new []{ 96.0, 0.0, 0.0 },
-                                      new []{ 0.0, 0.0, 0.0 },
-                                      new []{ 0.0, 0.0, 0.25 },
-                                      new []{ 9.75, 0.0, 3.5 },
-                                      new []{ 96.0, 0.0, 3.5 },
+                        Vertices = new List<Point3D> {
+                                      new Point3D( 96.0, 1.5, 0.0 ),
+                                      new Point3D( 0.0, 1.5, 0.0 ),
+                                      new Point3D( 0.0, 1.5, 0.25 ),
+                                      new Point3D( 9.75, 1.5, 3.5 ),
+                                      new Point3D( 96.0, 1.5, 3.5 ),
+                                      new Point3D( 96.0, 0.0, 0.0 ),
+                                      new Point3D( 0.0, 0.0, 0.0 ),
+                                      new Point3D( 0.0, 0.0, 0.25 ),
+                                      new Point3D( 9.75, 0.0, 3.5 ),
+                                      new Point3D( 96.0, 0.0, 3.5 ),
                         },
 
-                        Faces = new []{
-                                      new []{ 0, 1, 2 },
-                                      new []{ 0, 2, 3 },
-                                      new []{ 0, 3, 4 },
-                                      new []{ 0, 5, 6 },
-                                      new []{ 0, 6, 15 },
-                                      new []{ 1, 6, 7 },
-                                      new []{ 1, 7, 2 },
-                                      new []{ 2, 7, 8 },
-                                      new []{ 2, 8, 3 },
-                                      new []{ 3, 8, 9 },
-                                      new []{ 3, 9, 4 },
-                                      new []{ 4, 9, 5 },
-                                      new []{ 4, 5, 0 },
-                                      new []{ 5, 9, 8 },
-                                      new []{ 5, 8, 7 },
-                                      new []{ 5, 7, 6 },
+                        Faces = new List<List<int>> {
+                                      new List<int>{ 0, 1, 2 },
+                                      new List<int>{ 0, 2, 3 },
+                                      new List<int>{ 0, 3, 4 },
+                                      new List<int>{ 0, 5, 6 },
+                                      new List<int>{ 0, 6, 15 },
+                                      new List<int>{ 1, 6, 7 },
+                                      new List<int>{ 1, 7, 2 },
+                                      new List<int>{ 2, 7, 8 },
+                                      new List<int>{ 2, 8, 3 },
+                                      new List<int>{ 3, 8, 9 },
+                                      new List<int>{ 3, 9, 4 },
+                                      new List<int>{ 4, 9, 5 },
+                                      new List<int>{ 4, 5, 0 },
+                                      new List<int>{ 5, 9, 8 },
+                                      new List<int>{ 5, 8, 7 },
+                                      new List<int>{ 5, 7, 6 },
                         },
                     },
                 }
@@ -120,8 +120,8 @@ namespace SBCA_DataStandard
                         MaterialDescription = "AS20 4x4",
                         MaterialGuid = Guid.Parse("92862168-2B8C-42F6-9A68-68EDAABEBC29"),
                         Angle = 0.0,
-                        Center = new[] { 60.0, 3.5, 1.5 },
-                        NormalDirection = new[]{ 0.0, 0.0, 1.0 },
+                        Center = new Point3D( 60.0, 3.5, 1.5 ),
+                        NormalDirection = new Vector3D( 0.0, 0.0, 1.0 ),
                                         },
                     new Connector()
                     {
@@ -129,8 +129,8 @@ namespace SBCA_DataStandard
                         MaterialDescription = "AS20 4x4",
                         MaterialGuid = Guid.Parse("92862168-2B8C-42F6-9A68-68EDAABEBC29"),
                         Angle = 0.0,
-                        Center = new[] { 60.0, 3.5, 1.5 },
-                        NormalDirection = new[]{ 0.0, 0.0, -1.0 },
+                        Center = new Point3D( 60.0, 3.5, 1.5 ),
+                        NormalDirection = new Vector3D (0.0, 0.0, -1.0 ),
                     }
               },
             },
@@ -140,7 +140,7 @@ namespace SBCA_DataStandard
                 new Bearing()
                 {
                     Name = "A",
-                    Center = new[] { 1.75, 0, .75 },
+                    Center = new Point3D  (1.75, 0, .75 ),
                     Depth = 1.5,
                     Width = 3.5,
                     BearingType = "Double Wall Plate",
@@ -149,7 +149,7 @@ namespace SBCA_DataStandard
                 new Bearing()
                 {
                     Name = "B",
-                    Center = new[] { 95.25, 0, .75 },
+                    Center = new Point3D ( 95.25, 0, .75 ),
                     Depth = 1.5,
                     Width = 3.5,
                     BearingType = "Double Wall Plate",
@@ -161,7 +161,7 @@ namespace SBCA_DataStandard
                 new Hanger()
                 {
                     Name = "Hanger 1",
-                    Center = new[] { 30.0, 0, 1.5 },
+                    Center = new Point3D ( 30.0, 0, 1.5 ),
                     Depth = 3.5,
                     Width = 3.5,
                     Height = 3.5,
