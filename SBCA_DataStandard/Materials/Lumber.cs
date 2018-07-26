@@ -1,11 +1,11 @@
 ﻿using SBCA_DataStandard.Enums;
 using System;
 
-namespace SBCA_DataStandard
+namespace SBCA_DataStandard.Materials
 {
-    public class Lumber
+    public class Lumber : Material
     {
-        public Guid Guid { get; set; }
+        public override MaterialType MaterialType => MaterialType.Lumber;
 
         public string NominalThickness { get; set; }
 

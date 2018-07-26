@@ -5,15 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SBCA_DataStandard
+namespace SBCA_DataStandard.Materials
 {
-    public class MetalPlate
+    public class ConnectorPlate : Material
     {
-        public Guid Guid { get; set; }
+        public override MaterialType MaterialType => MaterialType.ConnectorPlate;
 
         public string PlateType { get; set; }
 
-        public string PlateManufacturer { get; set; }
+        public PlateManufacturer PlateManufacturer { get; set; }
 
         public double Width { get; set; }
 
@@ -22,5 +22,9 @@ namespace SBCA_DataStandard
         public double Thickness { get; set; }
 
         public PlateGauge PlateGauge { get; set; }
+
+        public StrengthGrade StrengthGrade { get; set; }
+
+        public bool Galvinized { get; set; }
     }
 }

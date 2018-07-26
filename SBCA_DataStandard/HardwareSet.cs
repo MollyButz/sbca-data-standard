@@ -6,17 +6,12 @@ using System.Threading.Tasks;
 
 namespace SBCA_DataStandard
 {
-    public class Hanger
+    public class HardwareSet
     {
         public string Name { get; set; }
 
-        public double Width { get; set; }
+        public Guid Guid { get; set; }
 
-        public double Depth { get; set; }
-
-        public double Height { get; set; }
-
-
-        public Point3D Center { get; set; }
+        public List<Hardware> HardwarePieces { get; set; }
     }
 }

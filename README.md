@@ -37,12 +37,9 @@ General Component Information
      - Material
      - 3D Geometry
      - QC Information
-  - Connectors
+  - Hardware
     - Name
     - Material
-    - Location
-  - Hangers
-    - Name/Label
     - Location
   - Bearings
     - Name/Label
@@ -67,7 +64,7 @@ While not a part of this current standard, future work may be done on:
 
 # Example
 
-A quick sample of what a Json data file for a Component might look like:
+A quick sample of what a Json data file for a Component looks like:
 
     {
       "Name": "Test",
@@ -78,41 +75,66 @@ A quick sample of what a Json data file for a Component might look like:
       "DistanceUnit": "Inches",
       "AngleUnit": "Degrees",
       "NumberOfPlies": 1,
+      "PliesFieldInstalled": false,
       "ComponentUsages": [ "Roof" ],
-      "MaterialTypes": [ "Lumber", "MetalPlate" ],
-      "MetalPlateTypes": [
+      "MaterialTypes": [ "ConnectorPlate", "Lumber", "Hanger" ],
+      "MaterialTypeCollections": [
         {
-          "Guid": "92862168-2b8c-42f6-9a68-68edaabebc29",
-          "PlateType": "AS20",
-          "PlateManufacturer": "Simpson Strong Tie",
-          "Width": 4.0,
-          "Length": 4.0,
-          "Thickness": 0.0356,
-          "PlateGauge": "Twenty"
+          "Name": "ConnectorPlateTypes",
+          "MaterialType": "ConnectorPlate",
+          "Materials": [
+            {
+              "MaterialType": "ConnectorPlate",
+              "PlateType": "AS20",
+              "PlateManufacturer": "Simpson Strong Tie",
+              "Width": 4.0,
+              "Length": 4.0,
+              "Thickness": 0.0356,
+              "PlateGauge": "Twenty",
+              "Guid": "92862168-2b8c-42f6-9a68-68edaabebc29"
+            }
+          ]
+        },
+        {
+          "Name": "Lumbers",
+          "MaterialType": "Lumber",
+          "Materials": [
+            {
+              "MaterialType": "Lumber",
+              "NominalThickness": "2",
+              "NominalWidth": "4",
+              "ActualThickness": 1.5,
+              "ActualWidth": 3.5,
+              "Grade": "Number2",
+              "Species": "SouthernPine",
+              "TreatmentType": "None",
+              "GradingMethod": "Visual",
+              "Structure": "Sawn",
+              "Guid": "9db95b90-542e-4045-ae39-42ce31ef65f8"
+            }
+          ]
+        },
+        {
+          "Name": "Hangers",
+          "MaterialType": "Hanger",
+          "Materials": [
+            {
+              "MaterialType": "Hanger",
+              "Description": "Hanger 1",
+              "IntersectionExtents": null,
+              "Guid": "2e6993b2-888a-40d9-b40d-468a836aaa13"
+            }
+          ]
         }
       ],
-      "Lumbers": [
-        {
-          "Guid": "9db95b90-542e-4045-ae39-42ce31ef65f8",
-          "NominalThickness": "2",
-          "NominalWidth": "4",
-          "ActualThickness": 1.5,
-          "ActualWidth": 3.5,
-          "Grade": "Number2",
-          "Species": "SouthernPine",
-          "TreatmentType": "None",
-          "GradingMethod": "Visual",
-          "Structure": "Sawn"
-        }
-      ],
-      "SteelSections": [],
-      "ConnectorSets": [
+      "HardwareSets": [
         [
           {
             "Name": "1",
             "MaterialDescription": "AS20 4x4",
-            "MaterialType": "Lumber",
+            "MaterialType": "ConnectorPlate",
             "MaterialGuid": "92862168-2b8c-42f6-9a68-68edaabebc29",
+            "FieldInstalled": false,
             "Center": [ 60.0, 3.5, 1.5 ],
             "NormalDirection": [ 0.0, 0.0, 1.0 ],
             "Angle": 0.0
@@ -120,8 +142,9 @@ A quick sample of what a Json data file for a Component might look like:
           {
             "Name": "1",
             "MaterialDescription": "AS20 4x4",
-            "MaterialType": "Lumber",
+            "MaterialType": "ConnectorPlate",
             "MaterialGuid": "92862168-2b8c-42f6-9a68-68edaabebc29",
+            "FieldInstalled": false,
             "Center": [ 60.0, 3.5, 1.5 ],
             "NormalDirection": [ 0.0, 0.0, -1.0 ],
             "Angle": 0.0
@@ -131,10 +154,11 @@ A quick sample of what a Json data file for a Component might look like:
       "Members": [
         {
           "Name": "B1",
-          "MemberType": "BottomChord",
+          "MemberTypes": [ "BottomChord" ],
           "MaterialDescription": "#2 SYP 2x4",
           "MaterialType": "Lumber",
           "MaterialGuid": "9db95b90-542e-4045-ae39-42ce31ef65f8",
+          "FieldInstalled": false,
           "StockLength": 120.0,
           "Geometry": {
             "Vertices": [
@@ -168,32 +192,29 @@ A quick sample of what a Json data file for a Component might look like:
               [ 5, 7, 6 ]
             ]
           },
-          "GrainDirection": [ 1.0, 0.0, 0.0 ]
-        }
-      ],
-      "Hangers": [
-        {
-          "Name": "Hanger 1",
-          "Width": 3.5,
-          "Depth": 3.5,
-          "Height": 3.5,
-          "Center": [ 30.0, 0.0, 1.5 ]
+          "Orientation": [ 1.0, 0.0, 0.0 ]
         }
       ],
       "Bearings": [
         {
-          "Name": "A",
+          "Guid": "c6423507-d96c-4fbb-97b9-c16a48ebff09",
+          "Description": "Hanger",
+          "AssociatedMaterialGuid": "2e6993b2-888a-40d9-b40d-468a836aaa13",
           "Width": 3.5,
           "Depth": 1.5,
           "Center": [ 1.75, 0.0, 0.75 ],
-          "BearingType": "Double Wall Plate"
+          "NormalDirection": [ 0.0, 1.0, 0.0 ],
+          "AssociatedHardwareGuids": [ "2e6993b2-888a-40d9-b40d-468a836aaa13" ]
         },
         {
-          "Name": "B",
+          "Guid": "2e6993b2-888a-40d9-b40d-468a836aaa13",
+          "Description": "Double Wall Plate",
+          "AssociatedMaterialGuid": "9db95b90-542e-4045-ae39-42ce31ef65f8",
           "Width": 3.5,
           "Depth": 1.5,
           "Center": [ 95.25, 0.0, 0.75 ],
-          "BearingType": "Double Wall Plate"
+          "NormalDirection": [ 0.0, 1.0, 0.0 ],
+          "AssociatedHardwareGuids": []
         }
       ]
     }

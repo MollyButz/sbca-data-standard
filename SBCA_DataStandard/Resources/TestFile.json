@@ -1,4 +1,5 @@
 {
+  "Guid": "dcba9337-2417-46f4-82ed-27cfd6bb5e4b",
   "Name": "Test",
   "Version": "0.1.1",
   "CreationProgram": "SBCA Uniform Data Standard Repository Tests",
@@ -7,76 +8,165 @@
   "DistanceUnit": "Inches",
   "AngleUnit": "Degrees",
   "NumberOfPlies": 1,
+  "PliesFieldInstalled": false,
   "ComponentUsages": [ "Roof" ],
-  "MaterialTypes": [ "Lumber", "MetalPlate" ],
-  "MetalPlateTypes": [
+  "MaterialTypeCollections": [
     {
-      "Guid": "92862168-2b8c-42f6-9a68-68edaabebc29",
-      "PlateType": "AS20",
-      "PlateManufacturer": "Simpson Strong Tie",
-      "Width": 4.0,
-      "Length": 4.0,
-      "Thickness": 0.0356,
-      "PlateGauge": "Twenty"
+      "Name": "ConnectorPlateTypes",
+      "MaterialType": "ConnectorPlate",
+      "Materials": [
+        {
+          "MaterialType": "ConnectorPlate",
+          "PlateType": "AS20",
+          "PlateManufacturer": "Simpson",
+          "Width": 4.0,
+          "Length": 4.0,
+          "Thickness": 0.0356,
+          "PlateGauge": "Twenty",
+          "StrengthGrade": "Standard",
+          "Galvinized": false,
+          "Guid": "92862168-2b8c-42f6-9a68-68edaabebc29"
+        }
+      ]
+    },
+    {
+      "Name": "Lumbers",
+      "MaterialType": "Lumber",
+      "Materials": [
+        {
+          "MaterialType": "Lumber",
+          "NominalThickness": "2",
+          "NominalWidth": "4",
+          "ActualThickness": 1.5,
+          "ActualWidth": 3.5,
+          "Grade": "Number2",
+          "Species": "SouthernPine",
+          "TreatmentType": "None",
+          "GradingMethod": "Visual",
+          "Structure": "Sawn",
+          "Guid": "9db95b90-542e-4045-ae39-42ce31ef65f8"
+        }
+      ]
+    },
+    {
+      "Name": "Hangers",
+      "MaterialType": "Hanger",
+      "Materials": [
+        {
+          "MaterialType": "Hanger",
+          "Description": "Hanger 1",
+          "Geometry": null,
+          "HangerManufacturer": "Alpine",
+          "Guid": "2e6993b2-888a-40d9-b40d-468a836aaa13"
+        }
+      ]
     }
   ],
-  "Lumbers": [
+  "HardwareSets": [
     {
-      "Guid": "9db95b90-542e-4045-ae39-42ce31ef65f8",
-      "NominalThickness": "2",
-      "NominalWidth": "4",
-      "ActualThickness": 1.5,
-      "ActualWidth": 3.5,
-      "Grade": "Number2",
-      "Species": "SouthernPine",
-      "TreatmentType": "None",
-      "GradingMethod": "Visual",
-      "Structure": "Sawn"
+      "Name": "Joint 1",
+      "Guid": "d1834ce8-4bda-44a0-ad97-b277d037dcfe",
+      "HardwarePieces": [
+        {
+          "Name": "1",
+          "MaterialDescription": "AS20 4x4",
+          "MaterialType": "ConnectorPlate",
+          "MaterialGuid": "92862168-2b8c-42f6-9a68-68edaabebc29",
+          "FieldInstalled": false,
+          "Center": {
+            "X": 60.0,
+            "Y": 3.5,
+            "Z": 1.5
+          },
+          "NormalDirection": {
+            "DX": 0.0,
+            "DY": 0.0,
+            "DZ": 1.0
+          },
+          "Angle": 0.0
+        },
+        {
+          "Name": "1",
+          "MaterialDescription": "AS20 4x4",
+          "MaterialType": "ConnectorPlate",
+          "MaterialGuid": "92862168-2b8c-42f6-9a68-68edaabebc29",
+          "FieldInstalled": false,
+          "Center": {
+            "X": 60.0,
+            "Y": 3.5,
+            "Z": 1.5
+          },
+          "NormalDirection": {
+            "DX": 0.0,
+            "DY": 0.0,
+            "DZ": -1.0
+          },
+          "Angle": 0.0
+        }
+      ]
     }
-  ],
-  "SteelSections": [],
-  "ConnectorSets": [
-    [
-      {
-        "Name": "1",
-        "MaterialDescription": "AS20 4x4",
-        "MaterialType": "Lumber",
-        "MaterialGuid": "92862168-2b8c-42f6-9a68-68edaabebc29",
-        "Center": { "X": 60.0, "Y": 3.5, "Z": 1.5 },
-        "NormalDirection": { "DX": 0.0, "DY": 0.0, "DZ": 1.0 },
-        "Angle": 0.0
-      },
-      {
-        "Name": "1",
-        "MaterialDescription": "AS20 4x4",
-        "MaterialType": "Lumber",
-        "MaterialGuid": "92862168-2b8c-42f6-9a68-68edaabebc29",
-        "Center": { "X": 60.0, "Y": 3.5, "Z": 1.5 },
-        "NormalDirection": { "DX": 0.0, "DY": 0.0, "DZ": -1.0 },
-        "Angle": 0.0
-      }
-    ]
   ],
   "Members": [
     {
       "Name": "B1",
-      "MemberType": "BottomChord",
+      "MemberTypes": [ "BottomChord" ],
       "MaterialDescription": "#2 SYP 2x4",
       "MaterialType": "Lumber",
       "MaterialGuid": "9db95b90-542e-4045-ae39-42ce31ef65f8",
+      "FieldInstalled": false,
       "StockLength": 120.0,
       "Geometry": {
         "Vertices": [
-          { "X": 96.0, "Y": 1.5, "Z": 0.0  },
-          { "X": 0.0,  "Y": 1.5, "Z": 0.0  },
-          { "X": 0.0,  "Y": 1.5, "Z": 0.25 },
-          { "X": 9.75, "Y": 1.5, "Z": 3.5  },
-          { "X": 96.0, "Y": 1.5, "Z": 3.5  },
-          { "X": 96.0, "Y": 0.0, "Z": 0.0  },
-          { "X": 0.0,  "Y": 0.0, "Z": 0.0  },
-          { "X": 0.0,  "Y": 0.0, "Z": 0.25 },
-          { "X": 9.75, "Y": 0.0, "Z": 3.5  },
-          { "X": 96.0, "Y": 0.0, "Z": 3.5  }
+          {
+            "X": 96.0,
+            "Y": 1.5,
+            "Z": 0.0
+          },
+          {
+            "X": 0.0,
+            "Y": 1.5,
+            "Z": 0.0
+          },
+          {
+            "X": 0.0,
+            "Y": 1.5,
+            "Z": 0.25
+          },
+          {
+            "X": 9.75,
+            "Y": 1.5,
+            "Z": 3.5
+          },
+          {
+            "X": 96.0,
+            "Y": 1.5,
+            "Z": 3.5
+          },
+          {
+            "X": 96.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.25
+          },
+          {
+            "X": 9.75,
+            "Y": 0.0,
+            "Z": 3.5
+          },
+          {
+            "X": 96.0,
+            "Y": 0.0,
+            "Z": 3.5
+          }
         ],
         "Faces": [
           [ 0, 1, 2 ],
@@ -97,32 +187,137 @@
           [ 5, 7, 6 ]
         ]
       },
-      "GrainDirection": { "DX": 1.0, "DY": 0.0, "DZ": 0.0 }
-    }
-  ],
-  "Hangers": [
-    {
-      "Name": "Hanger 1",
-      "Width": 3.5,
-      "Depth": 3.5,
-      "Height": 3.5,
-      "Center": { "X": 30.0, "Y": 0.0, "Z": 1.5 }
+      "Orientation": {
+        "DX": 1.0,
+        "DY": 0.0,
+        "DZ": 0.0
+      }
     }
   ],
   "Bearings": [
     {
-      "Name": "A",
-      "Width": 3.5,
-      "Depth": 1.5,
-      "Center": { "X": 1.75, "Y": 0.0, "Z": 0.75 },
-      "BearingType": "Double Wall Plate"
+      "Guid": "1e9e3783-e616-4511-b62b-5dd5eda62fce",
+      "Description": "Hanger",
+      "AssociatedHardwareSetGuid": "2e6993b2-888a-40d9-b40d-468a836aaa13",
+      "Geometry": {
+        "Vertices": [
+          {
+            "X": 96.0,
+            "Y": 1.5,
+            "Z": 0.0
+          },
+          {
+            "X": 0.0,
+            "Y": 1.5,
+            "Z": 0.0
+          },
+          {
+            "X": 0.0,
+            "Y": 1.5,
+            "Z": 0.25
+          },
+          {
+            "X": 9.75,
+            "Y": 1.5,
+            "Z": 3.5
+          },
+          {
+            "X": 96.0,
+            "Y": 1.5,
+            "Z": 3.5
+          },
+          {
+            "X": 96.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.25
+          },
+          {
+            "X": 9.75,
+            "Y": 0.0,
+            "Z": 3.5
+          },
+          {
+            "X": 96.0,
+            "Y": 0.0,
+            "Z": 3.5
+          }
+        ],
+        "Faces": [
+          [ 0, 1, 2 ],
+          [ 0, 2, 3 ],
+          [ 0, 3, 4 ],
+          [ 0, 5, 6 ],
+          [ 0, 6, 15 ],
+          [ 1, 6, 7 ],
+          [ 1, 7, 2 ],
+          [ 2, 7, 8 ],
+          [ 2, 8, 3 ],
+          [ 3, 8, 9 ],
+          [ 3, 9, 4 ],
+          [ 4, 9, 5 ],
+          [ 4, 5, 0 ],
+          [ 5, 9, 8 ],
+          [ 5, 8, 7 ],
+          [ 5, 7, 6 ]
+        ]
+      },
+      "AssociatedHardwareGuids": []
     },
     {
-      "Name": "B",
-      "Width": 3.5,
-      "Depth": 1.5,
-      "Center": { "X": 95.25, "Y": 0.0, "Z": 0.75 },
-      "BearingType": "Double Wall Plate"
+      "Guid": "93067b38-4823-4d07-83cb-9fdd090b81d7",
+      "Description": "Double Wall Plate",
+      "AssociatedHardwareSetGuid": "9db95b90-542e-4045-ae39-42ce31ef65f8",
+      "Geometry": {
+        "Vertices": [
+          {
+            "X": 0.0,
+            "Y": 1.5,
+            "Z": 0.0
+          },
+          {
+            "X": 0.0,
+            "Y": 1.5,
+            "Z": 0.25
+          },
+          {
+            "X": 9.75,
+            "Y": 1.5,
+            "Z": 3.5
+          },
+          {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.25
+          },
+          {
+            "X": 9.75,
+            "Y": 0.0,
+            "Z": 3.5
+          }
+        ],
+        "Faces": [
+          [ 0, 1, 2 ],
+          [ 0, 2, 3 ],
+          [ 0, 3, 4 ],
+          [ 0, 5, 6 ]
+        ]
+      },
+      "AssociatedHardwareGuids": []
     }
   ]
 }

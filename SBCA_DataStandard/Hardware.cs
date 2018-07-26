@@ -8,7 +8,7 @@ using SBCA_DataStandard.Enums;
 
 namespace SBCA_DataStandard
 {
-    public class Connector
+    public class Hardware
     { 
         public string Name { get; set; }
 
@@ -18,8 +18,10 @@ namespace SBCA_DataStandard
 
         public Guid MaterialGuid { get; set; }
 
-        public Point3D Center { get; set; }
+        public bool FieldInstalled { get; set; }
 
+        public Point3D Center { get; set; }
+		
         public Vector3D NormalDirection { get; set; }
 
         /// <summary>

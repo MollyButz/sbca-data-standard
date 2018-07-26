@@ -10,7 +10,7 @@ namespace SBCA_DataStandard.Enums
     {
         C_Channel,
         SquareTube,
-        RectTube,
+        RectangularTube,
         J_Channel,
     }
 

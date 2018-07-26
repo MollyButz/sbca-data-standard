@@ -3,19 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Schema;
+using Newtonsoft.Json.Schema.Generation;
 
 namespace SBCA_DataStandard
 {
     public class Bearing
     {
-        public string Name { get; set; }
+        [JsonProperty(Required = Required.Always)]
+        public Guid Guid { get; set; }
 
-        public double Width { get; set; }
+        public string Description { get; set; }
 
-        public double Depth { get; set; }
+        public Guid AssociatedHardwareSetGuid { get; set; }
 
-        public Point3D Center { get; set; }
+        public Geometry Geometry { get; set; }
 
-        public string BearingType { get; set; }
+        public IEnumerable<Guid> AssociatedHardwareGuids { get; set; } = new List<Guid>();
     }
 }

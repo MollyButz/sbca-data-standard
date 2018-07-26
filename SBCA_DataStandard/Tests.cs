@@ -21,7 +21,7 @@ namespace SBCA_DataStandard
         {
             ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
             PreserveReferencesHandling = PreserveReferencesHandling.None,
-            Converters = new List<JsonConverter> { new StringEnumConverter() },
+            Converters = new List<JsonConverter> { new StringEnumConverter(), new MaterialJsonConverter() },
             ContractResolver = new CamelCasePropertyNamesContractResolver(),
         };
 
@@ -61,10 +61,11 @@ namespace SBCA_DataStandard
         {
             var component = TestModels.TestComponent;
             var jsonOutput = JsonConvert.SerializeObject(component, Formatting.Indented, new Newtonsoft.Json.Converters.StringEnumConverter());
+            var desktopPath = Environment.GetFolderPath(System.Environment.SpecialFolder.DesktopDirectory);
 
             try
             {
-                string outputFile = @".\componentoutput.json";
+                string outputFile = $@"{desktopPath}\componentoutput.json";
                 File.WriteAllText(outputFile, jsonOutput);
 
                 Assert.IsTrue(File.Exists(outputFile));
@@ -80,10 +81,11 @@ namespace SBCA_DataStandard
         {
             var schemaFromModel = SchemaGenerator.Generate(typeof(Component));
             var jsonOutput = schemaFromModel.ToString();
+            var desktopPath = Environment.GetFolderPath(System.Environment.SpecialFolder.DesktopDirectory);
 
             try
             {
-                string outputFile = @".\modeloutput.json";
+                string outputFile = $@"{desktopPath}\modeloutput.json";
                 File.WriteAllText(outputFile, jsonOutput);
 
                 Assert.IsTrue(File.Exists(outputFile));
@@ -108,21 +110,21 @@ namespace SBCA_DataStandard
             Assert.AreEqual(component.DistanceUnit, reparsedComponent.DistanceUnit);
             Assert.AreEqual(component.AngleUnit, reparsedComponent.AngleUnit);
             Assert.That(component.ComponentUsages, Is.EquivalentTo(reparsedComponent.ComponentUsages));
-            Assert.That(component.MaterialTypes, Is.EquivalentTo(reparsedComponent.MaterialTypes));
 
-            Assert.AreEqual(component.Members[0].Name, "B1");
-            Assert.AreEqual(component.Members[0].MemberType, "BottomChord");
-            Assert.AreEqual(component.Members[0].MaterialDescription, "#2 SYP 2x4");
-            Assert.AreEqual(component.Members[0].MaterialType, MaterialType.Lumber);
-            Assert.AreEqual(component.Members[0].StockLength, 120);
-            Assert.AreEqual(component.Members[0].GrainDirection.DX, 1.0);
-            Assert.AreEqual(component.Members[0].GrainDirection.DY, 0.0);
-            Assert.AreEqual(component.Members[0].GrainDirection.DZ, 0.0);
+            var firstMember = component.Members.First();
 
+            Assert.AreEqual(firstMember.Name, "B1");
+            Assert.AreEqual(firstMember.MemberTypes[0], MemberType.BottomChord);
+            Assert.AreEqual(firstMember.MaterialDescription, "#2 SYP 2x4");
+            Assert.AreEqual(firstMember.MaterialType, MaterialType.Lumber);
+            Assert.AreEqual(firstMember.StockLength, 120);
+            Assert.AreEqual(firstMember.Orientation.DX, 1.0);
+            Assert.AreEqual(firstMember.Orientation.DY, 0.0);
+            Assert.AreEqual(firstMember.Orientation.DZ, 0.0);
         }
 
         [Test]
-        public void ValidJsonSchema_C3_SP_24()
+        public void ValidJsonSchema_TestFile()
         {
             var schema = JSchema.Parse(Encoding.UTF8.GetString(FileResources.Schema));
             var componentJson = JObject.Parse(Encoding.UTF8.GetString(FileResources.TestFile));

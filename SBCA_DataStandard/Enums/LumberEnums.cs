@@ -183,6 +183,28 @@ namespace SBCA_DataStandard.Enums
         LaminatedStrandLumber,
     }
 
+    public enum MemberType
+    {
+        TopChord,
+        BottomChord,
+        Web,
+        Wedge,
+        TopChordSlider,
+        BottomChordSlider,
+        GableStud,
+        TrimEnd,
+        WebBlock,
+        EndVertical,
+        NonStructuralBlock,
+        Other,
+        KingPost,
+        TopPlate,
+        CapPlate,
+        Cripple,
+        Stud,
+        Header,
+    }
+
     public enum GradingMethod
     {
         Visual,
