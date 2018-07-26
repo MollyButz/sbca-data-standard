@@ -19,7 +19,5 @@ namespace SBCA_DataStandard
         public Guid AssociatedHardwareSetGuid { get; set; }
 
         public Geometry Geometry { get; set; }
-
-        public IEnumerable<Guid> AssociatedHardwareGuids { get; set; } = new List<Guid>();
     }
 }

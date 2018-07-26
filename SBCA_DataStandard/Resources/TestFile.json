@@ -1,9 +1,9 @@
 {
   "Guid": "dcba9337-2417-46f4-82ed-27cfd6bb5e4b",
   "Name": "Test",
-  "Version": "0.1.1",
+  "Version": "0.1.2",
   "CreationProgram": "SBCA Uniform Data Standard Repository Tests",
-  "CreationProgramVersion": "0.1.1",
+  "CreationProgramVersion": "0.1.2",
   "CreationTimeStamp": "2018-06-15T00:00:00",
   "DistanceUnit": "Inches",
   "AngleUnit": "Degrees",
@@ -270,8 +270,7 @@
           [ 5, 8, 7 ],
           [ 5, 7, 6 ]
         ]
-      },
-      "AssociatedHardwareGuids": []
+      }
     },
     {
       "Guid": "93067b38-4823-4d07-83cb-9fdd090b81d7",
@@ -316,8 +315,7 @@
           [ 0, 3, 4 ],
           [ 0, 5, 6 ]
         ]
-      },
-      "AssociatedHardwareGuids": []
+      }
     }
   ]
 }

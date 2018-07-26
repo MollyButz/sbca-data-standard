@@ -9,20 +9,16 @@ namespace SBCA_DataStandard
 {
     public class Component
     {
-        [JsonProperty(Required = Required.Always)]
         public Guid Guid { get; set; }
 
-        [JsonProperty(Required = Required.Always)]
         public string Name { get; set; }
 
-        [JsonProperty(Required = Required.Always)]
-        public string Version { get; set; } = new Version(0, 1, 1).ToString();
+        public string Version { get; set; } = new Version(0, 1, 2).ToString();
 
         public string CreationProgram { get; set; }
 
         public string CreationProgramVersion { get; set; }
 
-        [JsonProperty(Required = Required.Always)]
         public DateTime CreationTimeStamp { get; set; }
 
         public DistanceUnit DistanceUnit { get; set; }
@@ -33,7 +29,6 @@ namespace SBCA_DataStandard
 
         public bool PliesFieldInstalled { get; set; }
 
-        [JsonProperty(Required = Required.Always)]
         public IEnumerable<ComponentUsage> ComponentUsages { get; set; }
 
         [JsonIgnore]
@@ -51,16 +46,12 @@ namespace SBCA_DataStandard
         [JsonIgnore]
         public IEnumerable<Screw> Screws => MaterialTypeCollections.SingleOrDefault(collection => collection.MaterialType == MaterialType.Screw)?.Materials.Cast<Screw>();
 
-        [JsonProperty(Required = Required.Always)]
         public IEnumerable<MaterialTypeCollection> MaterialTypeCollections { get; set; } = new List<MaterialTypeCollection>();
 
-        [JsonProperty(Required = Required.Always)]
         public IEnumerable<HardwareSet> HardwareSets { get; set; } = new List<HardwareSet>();
 
-        [JsonProperty(Required = Required.Always)]
         public IEnumerable<Member> Members { get; set; } = new List<Member>();
 
-        [JsonProperty(Required = Required.Always)]
         public IEnumerable<Bearing> Bearings { get; set; } = new List<Bearing>();
     }
 }

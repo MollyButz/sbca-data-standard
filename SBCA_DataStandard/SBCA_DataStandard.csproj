@@ -78,7 +78,7 @@
     <Compile Include="Materials\Hanger.cs" />
     <Compile Include="Materials\Material.cs" />
     <Compile Include="Materials\Lumber.cs" />
-    <Compile Include="Materials\Dowel.cs" />
+    <Compile Include="Materials\Screw.cs" />
     <Compile Include="MaterialTypeCollection.cs" />
     <Compile Include="Member.cs" />
     <Compile Include="Point3D.cs" />

@@ -19,8 +19,8 @@ namespace SBCA_DataStandard
             NumberOfPlies = 1,
             CreationTimeStamp = DateTime.Parse("6/15/2018"),
             CreationProgram = "SBCA Uniform Data Standard Repository Tests",
-            CreationProgramVersion = new Version(0, 1, 1).ToString(),
-            Version = new Version(0, 1, 1).ToString(),
+            CreationProgramVersion = new Version(0, 1, 2).ToString(),
+            Version = new Version(0, 1, 2).ToString(),
 
             ComponentUsages = new List<ComponentUsage>()
             {

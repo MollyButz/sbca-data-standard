@@ -32,7 +32,7 @@ namespace SBCA_DataStandard
                 {
                     var returnGenerator = new JSchemaGenerator();
                     returnGenerator.GenerationProviders.Add(new StringEnumGenerationProvider());
-                    returnGenerator.DefaultRequired = Required.DisallowNull;
+                    returnGenerator.DefaultRequired = Required.Always;
                     return returnGenerator;
                 }
             }
