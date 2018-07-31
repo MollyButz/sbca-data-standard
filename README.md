@@ -2,7 +2,7 @@
 
 # What is the SBCA Unified-File-Format?
 
-The SBCA Unified-File-Format developed by the [SBCA](https://www.sbcindustry.com/). It's purpose is to provide an standard data model for the interoperability of Machinery and Software that involved in the building, designing, shipping and quality control of Prefabricated Components and their connecting hardware, as well as other related information in the Prefabricated Component Industry. 
+The SBCA Unified-File-Format developed by [SBCA](https://www.sbcindustry.com/). It's purpose is to provide a standard data model for the interoperability of machinery and software that are involved in the building, designing, shipping and quality control of structural building components and their connecting hardware, as well as other related information in the structural building component industry. 
 
 # What is a Data Standard?
 
@@ -20,7 +20,7 @@ Effective standard models have been developed in the banking, insurance, pharmac
 
 # What is in the SBCA Unified-File-Format?
 
-The SBCA Unified-File-Format contains the following facts of a prefabricated component.
+The SBCA Unified-File-Format contains the following facts of a structural building components.
 
 General Component Information
 
@@ -49,7 +49,7 @@ And other information about the physical makeup of the component.
 
 # Who maintains and develops the SBCA Unified-File-Format?
 
-While the SBCA manages and approves the changes and development of this standard, input and pull requests are welcome from any interested parties. If this is your first time using github, [here](https://www.youtube.com/watch?v=w3jLJU7DT5E) is a short explanation video. For more information on the process of pull requests check out [this tutorial](https://help.github.com/articles/about-pull-requests/)
+While SBCA manages and approves the changes and development of this standard, input and pull requests are welcome from any interested parties. If this is your first time using github, [here](https://www.youtube.com/watch?v=w3jLJU7DT5E) is a short explanation video. For more information on the process of pull requests check out [this tutorial](https://help.github.com/articles/about-pull-requests/)
 
 To make a suggestion for changing the file format, start by taking a look at [the JSON Schema that describes the Component file](https://github.com/jth41/sbca-data-standard/blob/master/SBCA_DataStandard/Resources/Schema.json). JSON Schema is a  vocabulary that allows you to annotate and validate JSON documents. This allows humans and computers to understand what is in a file and whether or not a particular file adheres to a standard schema. For more information, checkout [http://json-schema.org/](http://json-schema.org/) and some of the [examples there](http://json-schema.org/examples.html).
 
